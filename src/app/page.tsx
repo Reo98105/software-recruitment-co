@@ -1,9 +1,53 @@
 import Image from "next/image";
-
 import styles from "./page.module.css";
+
+import Card from "@/components/Card";
 import Footer from "@/components/Footer";
 
 export default function Home() {
+  const jobDetails = [
+    {
+      language: "Python",
+      svg: "python",
+      position: "Software Engineer",
+      location: "London",
+      salary: "65,000",
+      jobDesc:
+        "Odio mi amet commodo convallis nunc. Tincidunt mauris eu egestas eget in aliquam.",
+      datePosted: "29/08/2023",
+    },
+    {
+      language: "Python",
+      svg: "python",
+      position: "Software Engineer",
+      location: "London",
+      salary: "65,000",
+      jobDesc:
+        "Odio mi amet commodo convallis nunc.\nTincidunt mauris eu egestas eget in aliquam.",
+      datePosted: "29/08/2023",
+    },
+    {
+      language: "Python",
+      svg: "python",
+      position: "Software Engineer",
+      location: "London",
+      salary: "65,000",
+      jobDesc:
+        "Odio mi amet commodo convallis nunc.\nTincidunt mauris eu egestas eget in aliquam.",
+      datePosted: "29/08/2023",
+    },
+    {
+      language: "Swift",
+      svg: "swift",
+      position: "Mobile Developer",
+      location: "Manchester",
+      salary: "75,000",
+      jobDesc:
+        "Odio mi amet commodo convallis nunc. Tincidunt mauris eu egestas eget in aliquam.",
+      datePosted: "14/11/2023",
+    },
+  ];
+
   return (
     <div className={styles.page}>
       <main className={styles.main}>
@@ -22,30 +66,8 @@ export default function Home() {
           <li>Save and see your changes instantly.</li>
         </ol>
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+        <div className={styles.jobContent}>
+          <Card data={jobDetails} />
         </div>
       </main>
       <Footer />

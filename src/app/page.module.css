@@ -33,6 +33,12 @@
   font-weight: 600;
 }
 
+.jobContent {
+  gap: 40px;
+  display: flex;
+  flex-direction: row;
+}
+
 .ctas {
   display: flex;
   gap: 16px;
