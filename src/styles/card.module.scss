@@ -1,0 +1,74 @@
+$colors: #fcdf69, #064ea4, #f99d76;
+$maxIndex: 3;
+
+@each $color in $colors {
+  $index: index($colors, $color);
+  $adjustedIndex: if($index > $maxIndex, 1, $index);
+
+  .customCard-#{$adjustedIndex} {
+    @if $color == #064ea4 {
+      color: #ffffff;
+    } @else {
+      color: #064ea4;
+    }
+    gap: 20px;
+    padding: 40px;
+    border-radius: 30px;
+    background-color: $color;
+    border-color: transparent;
+  }
+}
+
+.customBtn {
+  color: #064ea4;
+  font-weight: 500;
+  border-radius: 30px;
+  background-color: #ffffff;
+  font-family: var(--font-helvetica-neue-r);
+}
+
+.cardHeader {
+  width: 75px;
+  height: 24px;
+  padding: 3px;
+  display: flex;
+  font-size: 14px;
+  color: #064ea4;
+  font-weight: 400;
+  border-radius: 5px;
+  align-items: center;
+  background-color: #ffffff;
+  font-family: var(--font-helvetica-neue-l);
+}
+
+.cardTitle {
+  font-size: 30px;
+  font-weight: 700;
+  font-family: var(--font-helvetica-neue-b);
+}
+
+.subSection {
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.cardSubTitle {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: var(--font-helvetica-neue-r);
+}
+
+.cardText {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: var(--font-helvetica-neue-r);
+}
+
+.cardFooter {
+  font-size: 13px;
+  font-weight: 300;
+  font-family: var(--font-helvetica-neue-r);
+}
