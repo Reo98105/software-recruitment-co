@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 
 import Label from "@/components/Label";
-import styles from "@/styles/footer.module.scss";
+import styles from "@/app/styles/footer.module.scss";
 
 const Footer: React.FC = () => {
   const colData1: object = {
