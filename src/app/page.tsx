@@ -53,6 +53,59 @@ export default function Home() {
     <div className={styles.page}>
       <Header />
       <main className={styles.main}>
+        <section className={styles.mainSec}>
+          <div className={styles.container}>
+            <Image
+              src="/Ellipse 1.svg"
+              alt="homepage logo"
+              layout="intrinsic"
+              width={160}
+              height={160}
+              className={styles.ellipseTop}
+            />
+            <div className={styles.mainContent}>
+              <div className={styles.content}>
+                <span className={styles.contentTitle}>
+                  Software Recruitment Specialists
+                </span>
+                <span className={styles.contentSubTitle}>
+                  Elevate your career
+                </span>
+                <div className={styles.searchContainer}>
+                  <form className="d-flex">
+                    <input
+                      className={`form-control ${styles.search}`}
+                      type="search"
+                      placeholder="E.g. networking"
+                    />
+                    <button
+                      className={`form-control ${styles.searchBtn}`}
+                      type="submit"
+                    >
+                      Search jobs
+                    </button>
+                  </form>
+                </div>
+              </div>
+              <div>
+                <Image
+                  src="/homepage 1.svg"
+                  alt="homepage logo"
+                  width={420}
+                  height={380}
+                />
+              </div>
+            </div>
+            <Image
+              src="/Ellipse 2.svg"
+              alt="homepage logo"
+              layout="intrinsic"
+              width={160}
+              height={160}
+              className={styles.ellipseBottom}
+            />
+          </div>
+        </section>
         <section className={styles.latestJobs}>
           <span className={styles.jobHeader}>Latest Jobs</span>
           <div className={styles.jobContent}>
