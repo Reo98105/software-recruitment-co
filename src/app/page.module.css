@@ -92,10 +92,11 @@
 
 .latestJobs {
   gap: 20px;
-  height: auto;
+  /* height: 100vh; */
   width: 100vw;
-  padding: 20px;
+  padding: 40px 35px;
   display: flex;
+  position: relative;
   align-items: center;
   flex-direction: column;
   justify-content: center;
@@ -111,8 +112,19 @@
 
 .jobContent {
   gap: 40px;
+  position: relative;
+  width: 80vw;
   display: flex;
+  justify-content: center;
+  will-change: transform;
+  transition: trabsform 0.75s ease-in-out;
   flex-direction: row;
+  /* overflow: hidden; */
+}
+
+.jobContent > div {
+  flex: 0 0 33.33%;
+  transition: transform 0.75s ease-in-out;
 }
 
 .jobFooter {
@@ -145,29 +157,16 @@
   background-color: #0e2152;
 }
 
-.ctas {
-  display: flex;
-  gap: 16px;
+.btnNav {
+  width: 40px;
+  height: 40px;
+  color: #0e2152;
+  transition: color 0.2s ease;
 }
 
-.ctas a {
-  appearance: none;
-  border-radius: 128px;
-  height: 48px;
-  padding: 0 20px;
-  border: none;
-  border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: 500;
+.btnNav:hover {
+  color: #2574d8;
+  transition: color 0.2s ease;
 }
 
 a.primary {
@@ -206,20 +205,6 @@ a.secondary {
 
   .main {
     align-items: center;
-  }
-
-  .main ol {
-    text-align: center;
-  }
-
-  .ctas {
-    flex-direction: column;
-  }
-
-  .ctas a {
-    font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
   }
 
   a.secondary {

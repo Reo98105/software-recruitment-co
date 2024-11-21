@@ -11,18 +11,19 @@ type Job = {
   salary: string;
   jobDesc: string;
   datePosted: string;
-  background: string;
 };
 
 export interface cardProps {
   data: Job[]; // card data
+  oriIndex: number; // data's index
 }
 
-const Card = ({ data }: cardProps) => {
+const Card = ({ data, oriIndex }: cardProps) => {
   return data.map((job, index) => {
+    console.log(index);
     return (
       <div
-        className={`card ${styles[`customCard-${(index % 3) + 1}`]}`}
+        className={`card ${styles[`customCard-${(oriIndex % 3) + 1}`]}`}
         key={index}
       >
         <div className={styles.cardHeader}>
@@ -38,7 +39,7 @@ const Card = ({ data }: cardProps) => {
         <div>
           <div className={styles.subSection}>
             <Image
-              src={index + 1 == 2 ? "/locationW.svg" : "/location.svg"}
+              src={oriIndex + 1 == 2 ? "/locationW.svg" : "/location.svg"}
               alt="location logo"
               width={24}
               height={24}
@@ -47,7 +48,7 @@ const Card = ({ data }: cardProps) => {
           </div>
           <div className={styles.subSection}>
             <Image
-              src={index + 1 == 2 ? "/salaryW.svg" : "/salary.svg"}
+              src={oriIndex + 1 == 2 ? "/salaryW.svg" : "/salary.svg"}
               alt="salary logo"
               width={24}
               height={24}
