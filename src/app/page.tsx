@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import styles from "./page.module.css";
+import styles from "@/app/styles/page.module.scss";
 
 import Card from "@/components/Card";
 import Footer from "@/components/Footer";
@@ -76,8 +76,6 @@ export default function Home() {
     });
   };
 
-  const totalCards = jobDetails.length;
-
   return (
     <div className={styles.page}>
       <Header />
@@ -122,6 +120,7 @@ export default function Home() {
                   alt="homepage logo"
                   width={420}
                   height={380}
+                  layout="intrinsic"
                 />
               </div>
             </div>
@@ -137,13 +136,7 @@ export default function Home() {
         </section>
         <section className={styles.latestJobs}>
           <span className={styles.jobHeader}>Latest Jobs</span>
-          <div
-            className={styles.jobContent}
-            style={{
-              transition: "transform 0.5s ease-in-out", // Smooth transition
-              willChange: "transform", // optimize
-            }}
-          >
+          <div className={styles.jobContent}>
             {/* Display only 3 cards at a time */}
             {[0, 1, 2].map((offset) => {
               const cardIndex = (startIndex + offset) % jobDetails.length;
