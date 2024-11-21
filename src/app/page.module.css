@@ -33,10 +33,59 @@
   font-weight: 600;
 }
 
+.latestJobs {
+  gap: 20px;
+  height: auto;
+  width: 100vw;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #d7e7fb;
+}
+
+.jobHeader {
+  color: #0e2152;
+  font-size: 56px;
+  font-weight: 700;
+  font-family: var(--font-helvetica-neue-b);
+}
+
 .jobContent {
   gap: 40px;
   display: flex;
   flex-direction: row;
+}
+
+.jobFooter {
+  width: 100vw;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.jobNav {
+  gap: 15px;
+  display: flex;
+  flex-direction: row;
+}
+
+.jobFooterText {
+  width: auto;
+  height: 44px;
+  font-size: 16px;
+  color: #0e2152;
+  font-weight: 500;
+  border-color: transparent;
+  background-color: transparent;
+  font-family: var(--font-helvetica-neue-b);
+}
+
+.jobFooterText:hover {
+  color: #d7e7fb;
+  background-color: #0e2152;
 }
 
 .ctas {

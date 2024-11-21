@@ -51,24 +51,30 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.jobContent}>
-          <Card data={jobDetails} />
-        </div>
+        <section className={styles.latestJobs}>
+          <span className={styles.jobHeader}>Latest Jobs</span>
+          <div className={styles.jobContent}>
+            <Card data={jobDetails} />
+          </div>
+          <div className={styles.jobFooter}>
+            <div className={styles.jobNav}>
+              <button className={`btn ${styles.btnNav}`}>
+                <Image src="/left.svg" alt="left logo" width={40} height={40} />
+              </button>
+              <button className={`btn ${styles.btnNav}`}>
+                <Image
+                  src="/right.svg"
+                  alt="right logo"
+                  width={40}
+                  height={40}
+                />
+              </button>
+            </div>
+            <button className={`btn ${styles.jobFooterText}`}>
+              View more jobs
+            </button>
+          </div>
+        </section>
       </main>
       <Footer />
     </div>
