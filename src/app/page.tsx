@@ -3,6 +3,7 @@ import styles from "./page.module.css";
 
 import Card from "@/components/Card";
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
 export default function Home() {
   const jobDetails = [
@@ -50,6 +51,7 @@ export default function Home() {
 
   return (
     <div className={styles.page}>
+      <Header />
       <main className={styles.main}>
         <section className={styles.latestJobs}>
           <span className={styles.jobHeader}>Latest Jobs</span>
