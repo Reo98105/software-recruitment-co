@@ -1,18 +1,29 @@
 import React from "react";
 
+import style from "@/app/styles/label.module.scss";
+
 export interface labelProps {
   onPress?: () => void;
   styles?: string;
+  rightDeco?: JSX.Element;
   children: string;
-  // maybe add hover checks?
 }
 
-const Label = ({ onPress, styles, children = "" }: labelProps) => {
-  const renderSpan = (label: string) => (
-    <span onClick={onPress} className={styles}>
-      {label}
-    </span>
-  );
+const Label = ({ onPress, styles, rightDeco, children = "" }: labelProps) => {
+  const renderSpan = (label: string) => {
+    return rightDeco != undefined ? (
+      <div className={style.deco}>
+        <span onClick={onPress} className={styles}>
+          {label}
+        </span>
+        {rightDeco}
+      </div>
+    ) : (
+      <span onClick={onPress} className={styles}>
+        {label}
+      </span>
+    );
+  };
 
   return renderSpan(children);
 };
