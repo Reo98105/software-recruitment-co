@@ -1,43 +1,75 @@
 .header {
-    width: 100%;
-    padding: 20px 0;
-    position: relative;
-    background-color: #ffffff;
+  width: 100%;
+  padding: 20px 0;
+  position: relative;
+  background-color: #ffffff;
+}
+
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #ffffff;
+}
+
+.headerMenu {
+  gap: 30px;
+  display: flex;
+  color: #1a1a1a;
+  font-weight: 400;
+  justify-content: space-between;
+  font-family: var(--font-helvetica-neue-r);
+}
+
+.headerBtn {
+  gap: 10px;
+  display: flex;
+  font-weight: 700;
+  font-family: var(--font-helvetica-neue-b);
+}
+
+.btnHeader1 {
+  color: #451b09;
+  padding: 12px 20px;
+  border-radius: 30px;
+  background-color: #fcdf69;
+}
+.btnHeader2 {
+  color: #451b09;
+  padding: 12px 20px;
+  border-radius: 30px;
+  background-color: #f99d76;
+}
+
+.dropdownContainer {
+  position: relative;
+
+  .menuList {
+    display: none;
+    position: absolute;
+    z-index: 5;
+
+    top: 100%;
+    left: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 200px;
+
+    .menuDetail {
+      padding: 8px 16px;
+      cursor: pointer;
+      &:hover {
+        background-color: #f1f1f1;
+      }
+    }
   }
-  
-  .navBar {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    background-color: #ffffff;
+
+  &:hover .menuList {
+    display: block;
   }
-  
-  .headerMenu {
-    gap: 30px;
-    display: flex;
-    color: #1A1A1A;
-    font-weight: 400;
-    justify-content: space-between;
-    font-family: var(--font-helvetica-neue-r);
-  }
-  
-  .headerBtn {
-    gap: 10px;
-    display: flex;
-    font-weight: 700;
-    font-family: var(--font-helvetica-neue-b);
-  }
-  
-  .btnHeader1 {
-    color: #451b09;
-    padding: 12px 20px;
-    border-radius: 30px;
-    background-color: #fcdf69;
-  }
-  .btnHeader2 {
-    color: #451b09;
-    padding: 12px 20px;
-    border-radius: 30px;
-    background-color: #f99d76;
-  }
-  
+}
