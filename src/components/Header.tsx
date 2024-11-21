@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 
 import Label from "@/components/Label";
@@ -10,6 +10,12 @@ type menu = {
 };
 
 const Header = () => {
+  const [isDrawerOpen, setDrawerOpen] = useState(false);
+
+  const toggleDrawer = () => {
+    setDrawerOpen(!isDrawerOpen);
+  };
+
   // some dummy data here
   const menuData: menu[] = [
     {
@@ -66,21 +72,26 @@ const Header = () => {
 
   return (
     <header className={styles.header}>
-      <nav className={styles.navBar}>
-        <a href="#">
-          <Image
-            src="/logo.svg"
-            alt="Software Recruitment co. logo"
-            width={244}
-            height={44}
-          />
-        </a>
+      <a href="#">
+        <Image
+          src="/logo.svg"
+          alt="Software Recruitment co. logo"
+          width={244}
+          height={44}
+        />
+      </a>
+      <nav
+        className={`${styles.navBar} ${isDrawerOpen ? styles.drawerOpen : ""}`}
+      >
         <div className={styles.headerMenu}>{renderMenu(menuData)}</div>
         <div className={styles.headerBtn}>
           <button className={`btn ${styles.btnHeader1}`}>Upload CV</button>
           <button className={`btn ${styles.btnHeader2}`}>Contact us</button>
         </div>
       </nav>
+      <button className={styles.hamburger} onClick={toggleDrawer}>
+        ☰
+      </button>
     </header>
   );
 };

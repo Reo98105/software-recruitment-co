@@ -1,15 +1,24 @@
 .header {
   width: 100%;
-  padding: 20px 0;
+  padding: 20px 20px;
   position: relative;
   background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .navBar {
   display: flex;
+  width: 80%;
   align-items: center;
   justify-content: space-evenly;
   background-color: #ffffff;
+  transition: transform 0.3s ease; // Smooth transition for drawer
+
+  &.drawerOpen {
+    transform: translateX(0); // Show drawer on mobile
+  }
 }
 
 .headerMenu {
@@ -28,19 +37,23 @@
   font-family: var(--font-helvetica-neue-b);
 }
 
-.btnHeader1 {
-  color: #451b09;
-  padding: 12px 20px;
-  border-radius: 30px;
-  background-color: #fcdf69;
-}
+.btnHeader1,
 .btnHeader2 {
   color: #451b09;
   padding: 12px 20px;
   border-radius: 30px;
+  font-size: 14px;
+}
+
+.btnHeader1 {
+  background-color: #fcdf69;
+}
+
+.btnHeader2 {
   background-color: #f99d76;
 }
 
+// For dropdown menu
 .dropdownContainer {
   position: relative;
 
@@ -48,7 +61,6 @@
     display: none;
     position: absolute;
     z-index: 5;
-
     top: 100%;
     left: 0;
     background-color: white;
@@ -71,5 +83,64 @@
 
   &:hover .menuList {
     display: block;
+  }
+}
+
+// Hamburger button styles (visible on mobile/tablet)
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #451b09;
+
+  @media (max-width: 1024px) {
+    display: block; // Show hamburger on small screens
+  }
+}
+
+// Mobile Drawer Styles
+@media (max-width: 1024px) {
+  .navBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 60%;
+    height: 100vh;
+    background-color: #ffffff;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    z-index: 10;
+    transform: translateX(-100%);
+  }
+
+  .drawerOpen {
+    transform: translateX(0);
+  }
+
+  .headerMenu .headerBtn {
+    display: flex; // Ensure menu is displayed in the drawer
+    flex-direction: column;
+    gap: 10px;
+  }
+
+
+  .hamburger {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+  }
+
+  .navBar .headerMenu,
+  .navBar .headerBtn {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .navBar .headerMenu a,
+  .navBar .headerBtn a {
+    font-size: 16px;
   }
 }
