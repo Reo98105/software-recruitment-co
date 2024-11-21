@@ -16,6 +16,7 @@ $maxIndex: 3;
     border-radius: 30px;
     background-color: $color;
     border-color: transparent;
+    transition: transform 0.75s ease;
   }
 }
 

@@ -1,11 +1,19 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 import styles from "./page.module.css";
 
 import Card from "@/components/Card";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import { LeftBtnIcon, RightBtnIcon } from "@/components/Svg";
 
 export default function Home() {
+  const [startIndex, setStartIndex] = useState(0);
+
+  const cardsPerSlide = 3;
+
   const jobDetails = [
     {
       language: "Python",
@@ -48,6 +56,27 @@ export default function Home() {
       datePosted: "14/11/2023",
     },
   ];
+
+  // cycling functions
+  const showNextCards = () => {
+    // Cycle forward, if reached the end, go back to start
+    setStartIndex((prevIndex) => {
+      // Ensure that when the end is reached, it wraps around to the start
+      return (prevIndex + cardsPerSlide) % jobDetails.length;
+    });
+  };
+
+  const showPreviousCards = () => {
+    // Cycle backward, if reached the start, go to end
+    setStartIndex((prevIndex) => {
+      // Ensure that when at the start, it wraps around to the end
+      return (
+        (prevIndex - cardsPerSlide + jobDetails.length) % jobDetails.length
+      );
+    });
+  };
+
+  const totalCards = jobDetails.length;
 
   return (
     <div className={styles.page}>
@@ -108,21 +137,32 @@ export default function Home() {
         </section>
         <section className={styles.latestJobs}>
           <span className={styles.jobHeader}>Latest Jobs</span>
-          <div className={styles.jobContent}>
-            <Card data={jobDetails} />
+          <div
+            className={styles.jobContent}
+            style={{
+              transition: "transform 0.5s ease-in-out", // Smooth transition
+              willChange: "transform", // optimize
+            }}
+          >
+            {/* Display only 3 cards at a time */}
+            {[0, 1, 2].map((offset) => {
+              const cardIndex = (startIndex + offset) % jobDetails.length;
+              return (
+                <Card
+                  data={[jobDetails[cardIndex]]}
+                  key={cardIndex}
+                  oriIndex={cardIndex}
+                />
+              );
+            })}
           </div>
           <div className={styles.jobFooter}>
             <div className={styles.jobNav}>
-              <button className={`btn ${styles.btnNav}`}>
-                <Image src="/left.svg" alt="left logo" width={40} height={40} />
+              <button className={`btn`} onClick={showNextCards}>
+                <LeftBtnIcon className={styles.btnNav} />
               </button>
-              <button className={`btn ${styles.btnNav}`}>
-                <Image
-                  src="/right.svg"
-                  alt="right logo"
-                  width={40}
-                  height={40}
-                />
+              <button className={`btn`} onClick={showPreviousCards}>
+                <RightBtnIcon className={styles.btnNav} />
               </button>
             </div>
             <button className={`btn ${styles.jobFooterText}`}>
